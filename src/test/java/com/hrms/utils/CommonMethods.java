@@ -67,8 +67,9 @@ public class CommonMethods extends PageInitializer {
     /**
      * @param fileName
      */
-    public static void takeScreenshot(String fileName) {
+    public static byte[] takeScreenshot(String fileName) {
         TakesScreenshot ts = (TakesScreenshot) driver;
+        byte[] bytes=ts.getScreenshotAs(OutputType.BYTES);
         File sourceFile = ts.getScreenshotAs(OutputType.FILE);
 
         try {
@@ -76,6 +77,7 @@ public class CommonMethods extends PageInitializer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return bytes;
     }
 
     /**

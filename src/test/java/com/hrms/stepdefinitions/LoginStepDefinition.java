@@ -1,5 +1,6 @@
 package com.hrms.stepdefinitions;
 
+import com.hrms.pages.DashboardPage;
 import com.hrms.utils.CommonMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -7,7 +8,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class LoginStepDefinition extends CommonMethods {
-
 
     @Given("navigate to HRMS login page")
     public void navigate_to_hrms_login_page() {
@@ -17,11 +17,10 @@ public class LoginStepDefinition extends CommonMethods {
     @When("enter valid credentials")
     public void enter_valid_credentials() {
         loginPage.login("Admin", "Hum@nhrm123");
-
     }
 
-    @When("click on login buton")
-    public void click_on_login_buton() {
+    @When("click on login button")
+    public void click_on_login_button() {
         loginPage.clickOnLoginBtn();
     }
 
@@ -37,7 +36,7 @@ public class LoginStepDefinition extends CommonMethods {
 
     @When("enter invalid credentials")
     public void enter_invalid_credentials() {
-        loginPage.login("Admin", "HRMSnhrm123");
+        loginPage.login("Admin343", "Hum@nhrm12sdfad3");
     }
 
     @Then("verify error message")

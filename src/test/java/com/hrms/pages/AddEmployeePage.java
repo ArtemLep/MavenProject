@@ -6,8 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AddEmployeePage  extends CommonMethods{
-
+public class AddEmployeePage extends CommonMethods {
         @FindBy(id = "firstName")
         public WebElement firstNameTextBox;
 
@@ -29,18 +28,34 @@ public class AddEmployeePage  extends CommonMethods{
         @FindBy (id = "photofile")
         public WebElement photograph;
 
-        @FindBy (id = "btnSave")
-        public WebElement saveBtn;
         @FindBy (id = "chkLogin")
         public WebElement createLoginDetails;
-        @FindBy (id = "user_name")
+
+        @FindBy(id = "user_name")
         public WebElement usernameCreate;
+
         @FindBy (id = "user_password")
         public WebElement userPassword;
+
         @FindBy (id = "re_password")
         public WebElement rePassword;
 
-        public AddEmployeePage(WebDriver driver) {
-            PageFactory.initElements(driver, this);
+        public void enterFirstAndLastName(String firstName, String lastName) {
+                sendText(firstNameTextBox, firstName);
+                sendText(lastNameTextbox, lastName);
         }
-    }
+
+        public void enterFirstMiddleAndLastName(String firstName, String middleName, String lastName) {
+                sendText(firstNameTextBox, firstName);
+                sendText(middleNameTextbox, middleName);
+                sendText(lastNameTextbox, lastName);
+        }
+
+        public void clickOnSaveBtn() {
+                JSclick(saveButton);
+        }
+
+        public AddEmployeePage() {
+                PageFactory.initElements(driver, this);
+        }
+}

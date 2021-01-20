@@ -6,10 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends CommonMethods {
+
     @FindBy(id = "txtUsername")
     public WebElement usernameBox;
 
-    @FindBy (xpath = "//input[@id='txtPassword']")
+    @FindBy(xpath = "//input[@id='txtPassword']")
     public WebElement passwordBox;
 
     @FindBy(css = "input#btnLogin")
@@ -26,11 +27,12 @@ public class LoginPage extends CommonMethods {
         sendText(usernameBox,username);
         sendText(passwordBox, password);
     }
-    public void clickOnLoginBtn(){
-        click(loginBtn);
 
+    public void clickOnLoginBtn() {
+        click(loginBtn);
     }
-    public String getErrorMessageText(){
+
+    public String getErrorMessageText() {
         return errorMsg.getText();
     }
 }
