@@ -1,10 +1,50 @@
-Feature:  Dashboard Tab Functionality
+Feature: Add Employee Functionality
 
-  @dashboardTabs
-  Scenario: Dashboard Tab verification
-    When  enter valid credentials
-    And click on login buton
+  Background:
+    When enter valid credentials
+    And click on login button
     Then verify dashboard is displayed
-    Then verfy the following tabs on dashboard
+    When click on PIM
+    And click on add employee button
 
-      | Admin | PIM | Leave | Time | Recruitment | Perfomance | Dashboard | Directory |
+  @addEmployeeWithoutLogin
+  Scenario: Add employee without login details
+    Then enter first and last name
+    And click on save button
+    Then verify employee is added successfully
+
+  @addEmployeeWithLogin
+  Scenario: Add employee with login credentials and with middle name
+    Then enter first and last name and middle name
+    When click on login details checkbox
+    Then enter login details
+    And click on save button
+    Then verify employee is added successfully
+
+  @parameter
+  Scenario: Add employee without login details but with middle name
+    Then enter first name "Ali", middle name "Osman" and last name "Kursun"
+    And click on save button
+    Then verify that "Ali Osman Kursun" is added successfully
+
+  @examples
+  Scenario Outline: Adding multiple employees without login details
+    When enter "<FirstName>", "<MiddleName>" and "<LastName>"
+    And click on save button
+    Then verify "<FirstName>", "<MiddleName>" and "<LastName>" is added successfully
+
+    Examples:
+      |FirstName|MiddleName|LastName|
+      |Mark     |J         |Smith   |
+      |John     |K         |Wick    |
+
+@dtWithHeader
+    Scenario: Adding multiple employees at one execution
+      When add multiple employees and verify they are added successfully
+        |FirstName|MiddleName|LastName|EmployeeId|
+        |Mark     |J         |Smith   |111111111 |
+        |John     |K         |Wick    |222222222 |
+
+  @excelTask
+  Scenario: Adding multiple employees from excel
+    When add multiple employees from excel "AddEmployee" sheet and verify they are added

@@ -37,3 +37,14 @@ Feature: Add Employee Functionality
       |FirstName|MiddleName|LastName|
       |Mark     |J         |Smith   |
       |John     |K         |Wick    |
+
+@dtWithHeader
+    Scenario: Adding multiple employees at one execution
+      When add multiple employees and verify they are added successfully
+        |FirstName|MiddleName|LastName|EmployeeId|
+        |Mark     |J         |Smith   |111111111 |
+        |John     |K         |Wick    |222222222 |
+
+  @excelTask
+  Scenario: Adding multiple employees from excel
+    When add multiple employees from excel "AddEmployee" sheet and verify they are added

@@ -34,11 +34,11 @@ public class DashboardPage extends CommonMethods {
     }
 
     public void clickOnPIM() {
-        JSclick(PIMButton);
+        JsClick(PIMButton);
     }
 
     public void clickOnAddEmployeeBtn() {
-        JSclick(addEmployeeBtn);
+        JsClick(addEmployeeBtn);
     }
 
 
