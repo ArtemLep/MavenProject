@@ -1,0 +1,25 @@
+{
+  "Message": "Entry Created",
+  "Employee": [
+    {
+      "employee_id": "17465A",
+      "emp_firstname": "moazzam",
+      "emp_middle_name": "s",
+      "emp_lastname": "sadiq",
+      "emp_birthday": "2021-02-27",
+      "emp_gender": "Male",
+      "emp_job_title": "Cloud Architect",
+      "emp_status": "Employee"
+    },
+    {
+      "employee_id": "1212121",
+      "emp_firstname": "m",
+      "emp_middle_name": "s",
+      "emp_lastname": "iq",
+      "emp_birthday": "202-27",
+      "emp_gender": "Ma",
+      "emp_job_title": "Clouchitect",
+      "emp_status": "Emplyee"
+    }
+  ]
+}
